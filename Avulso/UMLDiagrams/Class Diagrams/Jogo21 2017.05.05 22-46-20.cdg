@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Jogo21">
+  <ClassDiagramComponents>
+    <Class name="Baralho" package="br.vinte21" visibility="public" xPosition="30.0" yPosition="234.0">
+      <Fields>
+        <Field name="PAUS" type="char" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="COPAS" type="char" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="ESPADAS" type="char" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="OUROS" type="char" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="AS" type="int" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="VALETE" type="int" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="DAMA" type="int" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="REIS" type="int" visibility="package" isStatic="true" isFinal="true"/>
+        <Field name="cartas" type="ArrayList" visibility="private"/>
+        <Field name="fundo" type="ImageIcon" visibility="private"/>
+        <Field name="painel" type="JPanel" visibility="private"/>
+        <Field name="lb_monte" type="JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="JPanel" name="p"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="removeCarta" returnType="Carta" visibility="public"/>
+        <Method name="addCarta" returnType="void" visibility="public">
+          <Argument type="Carta" name="c"/>
+        </Method>
+        <Method name="embaralhar" returnType="void" visibility="public"/>
+        <Method name="getNumcartas" returnType="int" visibility="public"/>
+        <Method name="zerarBaralho" returnType="void" visibility="public"/>
+        <Method name="getFundo" returnType="ImageIcon" visibility="public"/>
+        <Method name="setFundo" returnType="void" visibility="public">
+          <Argument type="ImageIcon" name="fundo"/>
+        </Method>
+        <Method name="desenhaMonte" returnType="void" visibility="public"/>
+        <Method name="apagaMonte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="br.vinte21" visibility="public" xPosition="342.0" yPosition="83.0">
+      <Fields>
+        <Field name="valor" type="int" visibility="private"/>
+        <Field name="valornojogo" type="int" visibility="private"/>
+        <Field name="naipe" type="char" visibility="private"/>
+        <Field name="faceparacima" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="int" name="valor"/>
+          <Argument type="char" name="naipe"/>
+          <Argument type="int" name="valornojogo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isFaceparacima" returnType="boolean" visibility="public"/>
+        <Method name="setFaceparacima" returnType="void" visibility="public">
+          <Argument type="boolean" name="faceparacima"/>
+        </Method>
+        <Method name="getNaipe" returnType="char" visibility="public"/>
+        <Method name="setNaipe" returnType="void" visibility="public">
+          <Argument type="char" name="naipe"/>
+        </Method>
+        <Method name="getValor" returnType="int" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="int" name="valor"/>
+        </Method>
+        <Method name="getValornojogo" returnType="int" visibility="public"/>
+        <Method name="setValornojogo" returnType="void" visibility="public">
+          <Argument type="int" name="valornojogo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Computador" package="br.vinte21" visibility="public" xPosition="705.0" yPosition="669.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="maisCartas" returnType="boolean" visibility="public">
+          <Argument type="int" name="cartasmonte"/>
+          <Argument type="int" name="cartasoponente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Jogador" package="br.vinte21" visibility="public" xPosition="774.0" yPosition="66.0">
+      <Fields>
+        <Field name="pontos" type="int" visibility="protected"/>
+        <Field name="score" type="int" visibility="protected"/>
+        <Field name="cartas" type="ArrayList" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCarta" returnType="Carta" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="addCarta" returnType="void" visibility="public">
+          <Argument type="Carta" name="c"/>
+        </Method>
+        <Method name="getNumcartas" returnType="int" visibility="public"/>
+        <Method name="getPontos" returnType="int" visibility="public"/>
+        <Method name="inicializar" returnType="void" visibility="public"/>
+        <Method name="getScore" returnType="int" visibility="public"/>
+        <Method name="setScore" returnType="void" visibility="public">
+          <Argument type="int" name="score"/>
+        </Method>
+        <Method name="addScore" returnType="void" visibility="public"/>
+        <Method name="mostrarCartas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Jogo21" package="br.vinte21" visibility="public" xPosition="1148.0" yPosition="338.0">
+      <Fields>
+        <Field name="computador" type="Computador" visibility="package"/>
+        <Field name="usuario" type="Jogador" visibility="package"/>
+        <Field name="monte" type="Baralho" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="JPanel" name="painel"/>
+          <Argument type="ImageIcon" name="im"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="inicializarJogo" returnType="void" visibility="public"/>
+        <Method name="inicializaMonte" returnType="void" visibility="public"/>
+        <Method name="getComputador" returnType="Computador" visibility="public"/>
+        <Method name="getUsuario" returnType="Jogador" visibility="public"/>
+        <Method name="getMonte" returnType="Baralho" visibility="public"/>
+        <Method name="zerarPlacar" returnType="void" visibility="public"/>
+        <Method name="getPlacar" returnType="String" visibility="public"/>
+        <Method name="jogarUsuario" returnType="void" visibility="public"/>
+        <Method name="jogarComputador" returnType="boolean" visibility="public"/>
+        <Method name="isUsuarioestourado" returnType="boolean" visibility="public"/>
+        <Method name="finalizarJogo" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Shuffle" package="br.vinte21" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="exch" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="a"/>
+          <Argument type="int" name="i"/>
+          <Argument type="int" name="j"/>
+        </Method>
+        <Method name="shuffle" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="a"/>
+        </Method>
+        <Method name="show" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="a"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="VinteUm" package="br.vinte21" visibility="public" xPosition="1535.0" yPosition="310.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="arquivomenu" type="JMenu" visibility="package"/>
+        <Field name="bar" type="JMenuBar" visibility="package"/>
+        <Field name="mi_sair" type="JMenuItem" visibility="package"/>
+        <Field name="pn_principal" type="JPanel" visibility="package"/>
+        <Field name="lb_placar" type="JLabel" visibility="package"/>
+        <Field name="lb_computador" type="JLabel" visibility="package"/>
+        <Field name="lb_jogador" type="JLabel" visibility="package"/>
+        <Field name="bt_sim" type="JButton" visibility="package"/>
+        <Field name="ic_fundo" type="ImageIcon" visibility="package"/>
+        <Field name="jogo" type="Jogo21" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="inicializarLabels" returnType="void" visibility="package"/>
+        <Method name="desenharCartas" returnType="void" visibility="public"/>
+        <Method name="apagarCartas" returnType="void" visibility="public"/>
+        <Method name="inicializar" returnType="void" visibility="public"/>
+        <Method name="finalizar" returnType="void" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="br.vinte21.Computador" target="br.vinte21.Jogador"/>
+    <UseRelation source="br.vinte21.Jogo21" target="br.vinte21.Jogador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuario" source="br.vinte21.Jogo21" target="br.vinte21.Jogador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jogo" source="br.vinte21.VinteUm" target="br.vinte21.Jogo21" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="br.vinte21.Jogador" target="br.vinte21.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="br.vinte21.Jogo21" target="br.vinte21.Baralho" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="computador" source="br.vinte21.Jogo21" target="br.vinte21.Computador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="br.vinte21.Baralho" target="br.vinte21.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="br.vinte21.Jogo21" target="br.vinte21.Computador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="monte" source="br.vinte21.Jogo21" target="br.vinte21.Baralho" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
